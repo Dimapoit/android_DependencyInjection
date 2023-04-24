@@ -1,8 +1,10 @@
 package com.blinov.dependencyinjection.example1
 
-class Computer(
-    computerTower: ComputerTower,
-    keyboard: Keyboard,
-    monitor: Monitor,
-    mouse: Mouse
+import javax.inject.Inject
+
+class Computer @Inject constructor(
+    val computerTower: ComputerTower,
+    val keyboard: Keyboard,
+    val monitor: Monitor,
+    val mouse: Mouse
 )

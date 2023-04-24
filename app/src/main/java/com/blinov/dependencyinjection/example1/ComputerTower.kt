@@ -1,7 +1,9 @@
 package com.blinov.dependencyinjection.example1
 
-class ComputerTower(
-    memory: Memory,
-    processor: Processor,
-    storage: Storage
+import javax.inject.Inject
+
+class ComputerTower @Inject constructor(
+    val memory: Memory,
+    val processor: Processor,
+    val storage: Storage
 )
