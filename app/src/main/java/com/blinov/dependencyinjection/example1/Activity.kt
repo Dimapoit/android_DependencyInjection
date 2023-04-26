@@ -8,7 +8,6 @@ class Activity {
     lateinit var computer: Computer
 
     init {
-        //DaggerNewComponent.create().inject(this)
         DaggerNewComponent.create().inject(this)
     }
 }
