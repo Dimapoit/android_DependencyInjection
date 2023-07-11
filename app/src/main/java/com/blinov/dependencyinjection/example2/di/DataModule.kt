@@ -1,9 +1,6 @@
 package com.blinov.dependencyinjection.example2.di
 
-import com.blinov.dependencyinjection.example2.data.datasourse.ExampleLocalDataSource
-import com.blinov.dependencyinjection.example2.data.datasourse.ExampleLocalDataSourceImpl
-import com.blinov.dependencyinjection.example2.data.datasourse.ExampleRemoteDataSource
-import com.blinov.dependencyinjection.example2.data.datasourse.ExampleRemoteDataSourceImpl
+import com.blinov.dependencyinjection.example2.data.datasourse.*
 import dagger.Binds
 import dagger.Module
 
@@ -14,7 +11,13 @@ interface DataModule {
     @Binds
     fun bindExampleLocalDataSource(impl: ExampleLocalDataSourceImpl): ExampleLocalDataSource
 
+    @ProdQualifier
     @ApplicationScope
     @Binds
-    fun bindExampleRemoteDataSource(mpl: ExampleRemoteDataSourceImpl): ExampleRemoteDataSource
+    fun bindExampleRemoteDataSource(impl: ExampleRemoteDataSourceImpl): ExampleRemoteDataSource
+
+    @TestQualifier
+    @ApplicationScope
+    @Binds
+    fun bindTestRemoteDataSource(impl: TestRemoteDataSourceImpl): ExampleRemoteDataSource
 }

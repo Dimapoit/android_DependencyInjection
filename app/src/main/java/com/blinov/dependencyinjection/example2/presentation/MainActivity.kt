@@ -1,6 +1,5 @@
 package com.blinov.dependencyinjection.example2.presentation
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private val component by lazy {
         (application as ExampleApp).component
-            .activityComponentFactory().create("MY-ID")
+            .activityComponentFactory().create("MY_ID", "NAME_1")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
