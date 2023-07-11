@@ -2,15 +2,16 @@ package com.blinov.dependencyinjection.example2.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.blinov.dependencyinjection.example2.domain.ExampleRepository
 import com.blinov.dependencyinjection.example2.domain.ExampleUseCase
 import javax.inject.Inject
 
-class ExampleViewModel @Inject constructor (
-    private val useCase: ExampleUseCase
+class ExampleViewModel2 @Inject constructor (
+    private val repository: ExampleRepository
     ): ViewModel() {
 
     fun method() {
         Log.d("ExampleViewModel", "$this")
-        useCase()
+        repository.method()
     }
 }
