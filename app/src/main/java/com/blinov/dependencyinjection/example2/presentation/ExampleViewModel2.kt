@@ -7,11 +7,12 @@ import com.blinov.dependencyinjection.example2.domain.ExampleUseCase
 import javax.inject.Inject
 
 class ExampleViewModel2 @Inject constructor (
-    private val repository: ExampleRepository
+    private val repository: ExampleRepository,
+    private val id: String
     ): ViewModel() {
 
     fun method() {
-        Log.d("ExampleViewModel", "$this")
+        Log.d("ExampleViewModel", "$this $id")
         repository.method()
     }
 }

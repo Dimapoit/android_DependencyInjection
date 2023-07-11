@@ -1,16 +1,13 @@
 package com.blinov.dependencyinjection.example2.presentation
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.blinov.dependencyinjection.R
 import com.blinov.dependencyinjection.example2.ExampleApp
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -23,10 +20,8 @@ class MainActivity : AppCompatActivity() {
         ViewModelProvider(this, viewModelFactory)[ExampleViewModel2::class.java]
     }
 
-    private val component by lazy {
-        (application as ExampleApp).component
-            .activityComponentFactory().create("MY-ID")
-    }
+    private val component by lazy { (application as ExampleApp).component
+        .activityComponentFactory().create("MY-ID-2")}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         component.inject(this)
@@ -34,10 +29,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         viewModel.method()
         viewModel2.method()
-        findViewById<TextView>(R.id.hello_world).setOnClickListener {
-            Intent(this, MainActivity2::class.java).apply {
-                startActivity(this)
-            }
-        }
+
     }
 }
